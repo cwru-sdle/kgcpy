@@ -4,6 +4,16 @@ from importlib import resources
 import io
 Image.MAX_IMAGE_PIXELS = None
 
+# Load the image file
+with resources.open_binary('kgcPy', 'kmz_int_reshape.png') as fp:
+    img = Image.open(fp)
+    img.load()
+
+with resources.open_binary('kgcPy', 'kg_zoneNum.csv') as fp:
+    df = pd.read_csv(fp)
+# rgb_values = {'R': r, 'G': g, 'B': b}
+
+
 # This function will return the climate zone for the co-ordinates provided.
 def lookupCZ(lat,lon):
     """
@@ -17,26 +27,16 @@ def lookupCZ(lat,lon):
     Returns:
         _type_: _description_
     """
-    # Load the image file
-    with resources.open_binary('kgcPy', 'kmz_int_reshape.png') as fp:
-        img = fp.read()
-    img = Image.open(io.BytesIO(img))
-    # img_rgb = img.convert('RGB')
-
     # Get the KG zone values of the pixel at position (x, y)
     x = round((lon+180)*(img.size[0])/360 - 0.5)
     y = round(-(lat-90)*(img.size[1])/180 - 0.5)
     num = img.getpixel((x, y))
-    
-    with resources.open_binary('kgcPy', 'kg_zoneNum.csv') as fp:
-        kg_zoneNum = fp.read()
-    df = pd.read_csv(io.BytesIO(kg_zoneNum))
-    # rgb_values = {'R': r, 'G': g, 'B': b}
 
     # Use the loc method to find the index of the row that matches the input values
     res = df['kg_zone'].loc[df['zoneNum'] == num]
 
     return res.values[0]
+
 
 # This function will return the data frame with the longitude and latitude of the zip codes
 def translateZipCode(zipcode):
