@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'kgcPy'
+version = "1.1.4"
+description = "Aids in identifying the Koeppen-Geiger (KG) climatic zone for a given latitude and longitude of any location."
+
+readme = "README.md"
+
+dependencies = [
+    'pillow',
+    'pandas',
+]
+
+license = {file = "LICENSE"}
+
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'License :: OSI Approved :: BSD License',
+    'Operating System :: OS Independent',
+    'Intended Audience :: Science/Research',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Topic :: Scientific/Engineering',
+]
+
+authors = [
+  {name = "Xuanji Yu", email = "xuanjiy@bu.edu"},
+  {name = "Chelsey Bryant", email = "clb117@case.edu"},
+  {name = "Nicholas R. Wheeler", email = "nrw16@case.edu"},
+  {name = "Franz Rubel", email = "franz.rubel@vetmeduni.ac.at"},
+  {name = "Julian Ascencio Vasquez", email = "julian.ascencio@envision-digital.com"},
+  {name = "Roger H. French", email = "rxf131@case.edu"},
+]
+
+[project.urls]
+"Bug Tracker" = "https://github.com/cwru-sdle/kgc-py/issues"
+"Source Code" = "https://github.com/cwru-sdle/kgc-py"
+
+[tool.setuptools.packages.find]
+include = ["kgcPy*"]
+
+[tool.setuptools_scm]
