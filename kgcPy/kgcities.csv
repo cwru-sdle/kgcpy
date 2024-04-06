@@ -1,0 +1,89 @@
+,loc,rczd,rcz,lon,lat
+0,"Puyo, Ecuador",tropical rainforest,Af,-78.00111,-1.066667
+1,"Medan, Indonesia",tropical rainforest,Af,98.66667,3.583333
+2,"Davao, Philippines",tropical rainforest,Af,125.6,7.066667
+3,"Macapa, Brazil",tropical monsoon,Am,-51.06639,0.03388889
+4,"Miami, Florida",tropical monsoon,Am,-80.20889,25.77528
+5,"Yangon, Myanmar",tropical monsoon,Am,96.18333,16.85
+6,"Monte Cristi, Dominican Republic",tropical savanna,As,-71.65,19.86667
+7,"Trincomalee, Sri Lanka",tropical savanna,As,81.23333,8.566667
+8,"Luperon, Dominican Republic",tropical savanna,As,-70.95,19.9
+9,"Darwin, Australia",tropical savanna,Aw,130.8333,-12.45
+10,"Brasilia, Brazil",tropical savanna,Aw,-47.88278,-15.79389
+11,"Accra, Ghana",tropical savanna,Aw,-0.2,5.55
+12,"Sabha, Libya",hot desert,BWh,14.42639,27.03889
+13,"Murcia, Spain",hot desert,BWh,-1.130278,37.98611
+14,"Lima, Peru",mild desert,BWn,-71.02833,-12.04333
+15,"Niamey, Niger",hot semi-arid,BSh,2.125278,13.51167
+16,"Alicante, Spain",hot semi-arid,BSh,-0.4830556,38.34528
+17,"Piraeus, Greece",hot semi-arid,BSh,23.63333,37.95
+18,"Swakopmund, Namibia",mild desert,BWn,14.53333,-22.68333
+19,"Walvis Bay, Namibia",mild desert,BWn,14.50806,-22.95611
+20,"Lima, Peru",mild desert,BWn,-77.02833,-12.04333
+21,"Leh, India",cold desert,BWk,77.56761,34.1454
+22,"Aktau, Kazakhstan",cold desert,BWk,51.15,43.65
+23,"Nukus, Uzbekistan",cold desert,BWk,59.6,42.63333
+24,"Reno, Nevada",cold semi-arid,BSk,-119.8219,39.52722
+25,"Tabriz, Iran",cold semi-arid,BSk,46.3,38.06667
+26,"Zaragoza, Spain",cold semi-arid,BSk,-0.8833333,41.65
+27,"Beirut, Lebanon",hot-summer mediterranean,Csa,35.51306,33.88694
+28,"Adelaide, Australia",hot-summer mediterranean,Csa,138.601,-34.929
+29,"Nice, France",hot-summer mediterranean,Csa,7.266389,43.70333
+30,"Porto, Portugal",warm-summer mediterranean,Csb,-8.621953,41.16214
+31,"Cape Town, South Africa",warm-summer mediterranean,Csb,18.42389,-33.92528
+32,"Potenza, Italy",warm-summer mediterranean,Csb,15.8,40.63333
+33,"Balmaceda, Chile",cold-summer mediterranean,Csc,-71.70056,-45.90917
+34,"Haleakala Summit, Hawaii, USA",cold-summer mediterranean,Csc,-156.2533,20.70972
+35,New Delhi,monsoon-influenced humid subtropical,Cwa,77.20889,28.61389
+36,"Hanoi, Vietnam",monsoon-influenced humid subtropical,Cwa,105.8542,21.02847
+37,"Kathmandu, Nepal",monsoon-influenced humid subtropical,Cwa,85.33333,27.7
+38,"Da Lat, Vietnam",dry-winter highland,Cwb,108.4383,11.94167
+39,"Nairobi, Kenya",dry-winter highland,Cwb,36.81667,-1.283333
+40,"Mexico City, Mexico",dry-winter highland,Cwb,-99.13333,19.43333
+41,"El Alto, Bolivia",cool-summer highland,Cwc,-68.16667,-16.51667
+42,"Durban, South Africa",humid subtropical,Cfa,31.05,-29.88333
+43,"Tokyo, Japan",humid subtropical,Cfa,139.6833,35.68333
+44,"Kutaisi, Georgia",humid subtropical,Cfa,42.7,42.25
+45,"Paris, France",temperate oceanic,Cfb,2.350833,48.85667
+46,"Berlin, Germany",temperate oceanic,Cfb,13.14583,52.50722
+47,"Port Elizabeth, South Africa",temperate oceanic,Cfb,25.6,-33.95806
+48,"Unalaska, Alaska, USA",subpolar oceanic,Cfc,-166.5272,53.88889
+49,"Reykjavik, Iceland",subpolar oceanic,Cfc,-21.93333,64.13333
+50,"Punta Arenas, Chile",subpolar oceanic,Cfc,-70.93333,-53.16667
+51,"Bishkek, Kyrgyzstan",hot dry summer continental,Dsa,74.61222,42.87472
+52,"Mus, Turkey",hot dry summer continental,Dsa,41.49111,38.73333
+53,"Cambridge, Idaho, USA",hot dry summer continental,Dsa,-116.6781,44.57167
+54,"Sivas, Turkey",warm dry-summer continental,Dsb,37.01667,39.75
+55,"Bridgeport, California",warm dry-summer continental,Dsb,-119.2314,38.25583
+56,"Dras, India",warm dry-summer continental,Dsb,75.75118,34.428152
+57,"Homer, Alaska, USA",dry-summer subarctic,Dsc,-151.5258,59.64306
+58,"Bodie, California, USA",dry-summer subarctic,Dsc,-119.0122,38.21222
+59,"Bohemia Mountain, Oregon, USA",dry-summer subarctic,Dsc,-122.6564,43.575
+60,"Beijing, China",monsoon-influenced humid continental,Dwa,116.3833,39.91667
+61,"Changchun, China",monsoon-influenced humid continental,Dwa,125.2,43.9
+62,"Pyongyang, North Korea",monsoon-influenced humid continental,Dwa,125.7381,39.01944
+63,"Vladivostok, Russia",monsoon-influenced humid continental,Dwb,131.9,43.13333
+64,"Baruunturuun, Mongolia",monsoon-influenced humid continental,Dwb,94.39917,49.65833
+65,"Heihe, China",monsoon-influenced humid continental,Dwb,127.4817,50.245
+66,"Yushu City, Qinghai China",alpine subarctic,Dwc,97.0,33.0
+67,"Moron, Mongolia",alpine subarctic,Dwc,100.1556,49.63556
+68,"Lukla, Nepal",alpine subarctic,Dwc,86.73056,27.68889
+69,"Seymchan, Russia",severe-winter subartic,Dwd,152.385,62.93083
+70,"Oymyakon, Russia",severe-winter subartic,Dwd,142.7858,63.46083
+71,"Oral, Kazakhstan",hot-summer humid continental,Dfa,51.36667,51.23333
+72,"Minneapolis, Minnesota, USA",hot-summer humid continental,Dfa,-93.26667,44.98333
+73,"Bucharest, Romania",hot-summer humid continental,Dfa,26.10389,44.4325
+74,"Montpelier, Vermont, USA",warm-summer humid continental,Dfb,-72.575,44.25972
+75,"Youngstown, Ohio, USA",warm-summer humid continental,Dfb,-80.65,41.1
+76,"Erzurum, Turkey",warm-summer humid continental,Dfb,41.27694,39.9086
+77,"Aldan, Russia",subarctic,Dfc,125.4167,58.61667
+78,"Anchorage, Alaska, USA",subarctic,Dfc,-149.9,61.21667
+79,"Tromso, Norway",subarctic,Dfc,18.94278,69.68278
+80,"Yakutsk, Russia",extreme subartic,Dfd,129.7333,62.03333
+81,"Verkhoyansk, Russia",extreme subartic,Dfd,133.3833,67.55
+82,"Ushuaia, Argentina",tundra,ET,-68.3,-54.8
+83,"La Rinconada, Peru",tundra,ET,-69.44583,-14.6325
+84,"Mt Rainier, Washington, USA",tundra,ET,-121.7603,46.85278
+85,"Mount Ararat, Turkey",ice cap,EF,4.29832,39.70188
+86,"Mount Everest, China/Nepal",ice cap,EF,86.92528,27.98806
+87,"Scott Base, Antarctica",ice cap,EF,166.75,-77.85

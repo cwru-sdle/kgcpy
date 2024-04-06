@@ -1,0 +1,5 @@
+include kgcPy/*.png
+include kgcPy/*.jpg
+include kgcPy/*.tif
+include kgcPy/*.npy
+include kgcPy/*.csv
