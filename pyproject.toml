@@ -38,6 +38,7 @@ authors = [
 [project.urls]
 "Bug Tracker" = "https://github.com/cwru-sdle/kgc-py/issues"
 "Source Code" = "https://github.com/cwru-sdle/kgc-py"
+"Documentation" = "https://kgc-py.readthedocs.io"
 
 [tool.setuptools.packages.find]
 include = ["kgcPy*"]
