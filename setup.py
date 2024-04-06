@@ -14,7 +14,7 @@ setup(
     url='https://engineering.case.edu/centers/sdle/',
     author='Xuanji Yu, Chelsey Bryant, Nicholas R. Wheeler, Franz Rubel, Julian Ascencio Vasquez, Roger H. French',
     author_email='xuanjiy@bu.edu, clb117@case.edu, nrw16@case.edu, franz.rubel@vetmeduni.ac.at, julian.ascencio@envision-digital.com, rxf131@case.edu',
-    project_urls={'Documentation':'https://kgcpy-doc.bitbucket.io/'},
+    project_urls={'Documentation':'https://kgc-py.readthedocs.io/en/latest/'},
 
     # BSD 3-Clause License:
     # - http://choosealicense.com/licenses/bsd-3-clause
