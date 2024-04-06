@@ -8,8 +8,7 @@
 
 import os
 import sys
-#sys.path.insert(0, os.path.abspath('../'))
-sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../'))
 
 project = 'kgcPy: Koeppen-Geiger Climatic Zones'
 copyright = '2023, Xuanji Yu, Chelsey Bryant, Nicholas R. Wheeler, Franz Rubel, Julian Ascencio Vasquez, Roger H. French'
