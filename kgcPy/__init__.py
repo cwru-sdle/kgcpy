@@ -3,9 +3,32 @@ import pandas as pd
 from importlib import resources
 import io
 Image.MAX_IMAGE_PIXELS = None
+import time
+
+# Helper function to load png file
+def loadKMZImage():
+    # Load the image file
+    with resources.files('kgcPy').joinpath('kmz_int_reshape.png').open('rb') as fp:
+        img = fp.read()
+    img = Image.open(io.BytesIO(img))
+    # img_rgb = img.convert('RGB')
+    return img
+
+# Helper function to load different CSV files
+def loadCSV(file):
+    with resources.files('kgcPy').joinpath(file).open('rb') as fp:
+        kgc_csv = fp.read()
+
+    if file == 'kg_zoneNum.csv':
+        return pd.read_csv(io.BytesIO(kgc_csv))
+    elif file == 'zipcodes.csv':
+        return pd.read_csv(io.BytesIO(kgc_csv), index_col=0, dtype={'zip':'string'})
+    elif file == 'df_quantile.csv':
+        return pd.read_csv(io.BytesIO(kgc_csv), index_col=0, dtype={'kg_zone':'string'})
+
 
 # This function will return the climate zone for the co-ordinates provided.
-def lookupCZ(lat,lon):
+def lookupCZ(lat,lon,img,df):
     """
     This function will return the climate zone for the co-ordinates provided.
     _summary_
@@ -17,21 +40,11 @@ def lookupCZ(lat,lon):
     Returns:
         _type_: _description_
     """
-    # Load the image file
-    with resources.open_binary('kgcPy', 'kmz_int_reshape.png') as fp:
-        img = fp.read()
-    img = Image.open(io.BytesIO(img))
-    # img_rgb = img.convert('RGB')
 
     # Get the KG zone values of the pixel at position (x, y)
     x = round((lon+180)*(img.size[0])/360 - 0.5)
     y = round(-(lat-90)*(img.size[1])/180 - 0.5)
     num = img.getpixel((x, y))
-    
-    with resources.open_binary('kgcPy', 'kg_zoneNum.csv') as fp:
-        kg_zoneNum = fp.read()
-    df = pd.read_csv(io.BytesIO(kg_zoneNum))
-    # rgb_values = {'R': r, 'G': g, 'B': b}
 
     # Use the loc method to find the index of the row that matches the input values
     res = df['kg_zone'].loc[df['zoneNum'] == num]
@@ -39,7 +52,7 @@ def lookupCZ(lat,lon):
     return res.values[0]
 
 # This function will return the data frame with the longitude and latitude of the zip codes
-def translateZipCode(zipcode):
+def translateZipCode(zipcode,df):
     """
     This function will return the data frame with the longitude and latitude of the zip codes
 
@@ -52,10 +65,6 @@ def translateZipCode(zipcode):
         _type_: _description_
     """
     zipcode = str(zipcode)
-
-    with resources.open_binary('kgcPy', 'zipcodes.csv') as fp:
-        zipcodes_csv = fp.read()
-    df = pd.read_csv(io.BytesIO(zipcodes_csv), index_col=0, dtype={'zip':'string'})
         
     try:
         rows = df.loc[df['zip'] == zipcode]
@@ -67,7 +76,7 @@ def translateZipCode(zipcode):
         return f"Search failed: {e}"
 
 # Get irradiance quantiles for each Koppen Geiger Climate Zone
-def irradianceQuantile(kg_zone):
+def irradianceQuantile(kg_zone,df):
     """
     Get irradiance quantiles for each Koppen Geiger Climate Zone
 
@@ -81,10 +90,6 @@ def irradianceQuantile(kg_zone):
     """
     # kg_zone = str(kg_zone)
 
-    with resources.open_binary('kgcPy', 'df_quantile.csv') as fp:
-        irradianceQuantile_csv = fp.read()
-    df = pd.read_csv(io.BytesIO(irradianceQuantile_csv), index_col=0, dtype={'kg_zone':'string'})
-        
     try:
         rows = df.loc[df['kg_zone'] == kg_zone]
         if len(rows) == 0:
@@ -95,9 +100,9 @@ def irradianceQuantile(kg_zone):
         return f"Search failed: {e}"
 
 # The inputed number to nearest ’fine’ (100s) resolution grid point.
-def roundCoordinates(lat,lon):
+def roundCoordinates(lat,lon,img):
     """
-    The inputed number to nearest ’fine’ (100s) resolution grid point.
+    The inputed number to nearest 'fine' (100s) resolution grid point.
 
     _summary_
 
@@ -108,10 +113,6 @@ def roundCoordinates(lat,lon):
     Returns:
         _type_: _description_
     """
-    # Load the image file
-    with resources.open_binary('kgcPy', 'kmz_int_reshape.png') as fp:
-        img = fp.read()
-    img = Image.open(io.BytesIO(img))
 
     # Get the RGB values of the pixel at position (x, y)
     x = round((lon+180)*(img.size[0])/360 - 0.5)
@@ -123,7 +124,7 @@ def roundCoordinates(lat,lon):
     return latRound, lonRound
 
 #get possible climate zones from nearby pixels, and compare to the center pixel; same as function CZUncertainty() in kgc R package 
-def nearbyCZ(lat,lon,size=1):
+def nearbyCZ(lat,lon,img,df,size=1):
     """
     get possible climate zones from nearby pixels, and compare to the center pixel; same as function CZUncertainty() in kgc R package 
 
@@ -140,21 +141,11 @@ def nearbyCZ(lat,lon,size=1):
     # Load the image file
     # Test
     # img = Image.open('Beck_KG_V1_present_0p0083.tif')
-    with resources.open_binary('kgcPy', 'kmz_int_reshape.png') as fp:
-        img = fp.read()
-    img = Image.open(io.BytesIO(img))
-    # img_rgb = img.convert('RGB')
 
     # Get the RGB values of the pixel at position (x, y)
     x = round((lon+180)*(img.size[0])/360 - 0.5)
     y = round(-(lat-90)*(img.size[1])/180 - 0.5)
  
-    # Test
-    # df = pd.read_csv('kg_zoneNum.csv')
-    with resources.open_binary('kgcPy', 'kg_zoneNum.csv') as fp:
-        kg_zoneNum = fp.read()
-    df = pd.read_csv(io.BytesIO(kg_zoneNum))
-
     climateZones = []
     climateZone = ''
 
@@ -182,6 +173,86 @@ def nearbyCZ(lat,lon,size=1):
     return climateZone, uncertaintyNearbyCZ, nearbyCZ
 
 
-## Testing LookupCz() function
+start_time = time.time()
 
-cl1 = lookupCZ(18.180555,-66.749961)
+'''
+## Testing LookupCZ() 
+zip = pd.read_csv('kgcPy/zipcodes.csv')
+print(zip)
+
+image = loadKMZImage()
+kg_zonNum_df = loadCSV('kg_zoneNum.csv')
+CZresults = pd.DataFrame(columns=['lat', 'lon', 'CZ'])
+
+for i in range(len(zip)):
+    lat = zip.iloc[i]['lat']
+    lon = zip.iloc[i]['lon']
+    cz = lookupCZ(lat, lon, img=image, df=kg_zonNum_df)
+    CZresults.loc[i] = [lat, lon, cz]
+print(CZresults)
+'''
+
+
+
+'''
+## Testing translateZipCode()
+locations = pd.DataFrame(columns=['zipcode', 'coordinates'])
+zipcodes_df = loadCSV('zipcodes.csv')
+for i in range(len(zipcodes_df)):
+    zip = zipcodes_df.iloc[i]['zip']
+    coordinate = translateZipCode(zipcode=zip,df=zipcodes_df)
+    locations.loc[i] = [zip, coordinate]
+print(locations)
+'''
+
+
+
+'''
+## Testing irradianceQuantile()
+quantiles = pd.DataFrame(columns=['kg_zone', 'quantiles'])
+quantiles_df = loadCSV('df_quantile.csv')
+for i in range(len(quantiles_df)):
+    kg_z = quantiles_df.iloc[i]['kg_zone']
+    quantile = irradianceQuantile(kg_zone=kg_z, df=quantiles_df)
+    quantiles.loc[i] = [kg_z, quantile]
+print(quantiles)
+'''
+
+
+
+'''
+## Testing roundCoordinates()
+zip = pd.read_csv('kgcPy/zipcodes.csv')
+
+image = loadKMZImage()
+rounded_coords = pd.DataFrame(columns=['original lat', 'original lon', 'rounded coordinates'])
+for i in range(len(zip)):
+    lat = zip.iloc[i]['lat']
+    lon = zip.iloc[i]['lon']
+    rounded = roundCoordinates(lat, lon, img=image)
+    rounded_coords.loc[i] = [lat, lon, rounded]
+print(rounded_coords)
+'''
+
+
+
+'''
+## Testing nearbyCZ()
+zip = pd.read_csv('kgcPy/zipcodes.csv')
+
+image = loadKMZImage()
+kg_zonNum_df = loadCSV('kg_zoneNum.csv')
+nearby_CZresults = pd.DataFrame(columns=['lat', 'lon', 'Nearby CZ result'])
+
+for i in range(len(zip)):
+    lat = zip.iloc[i]['lat']
+    lon = zip.iloc[i]['lon']
+    nearby_result = nearbyCZ(lat, lon, img=image,df=kg_zonNum_df)    
+    nearby_CZresults.loc[i] = [lat, lon, nearby_result]
+print(nearby_CZresults)
+'''
+
+
+end_time = time.time()
+execution_time = end_time - start_time
+print(f"Execution time: {execution_time:.2f} seconds")
