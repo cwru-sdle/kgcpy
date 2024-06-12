@@ -6,9 +6,9 @@ Image.MAX_IMAGE_PIXELS = None
 import time
 
 # Helper function to load png file
-def loadKMZImage():
+def loadKMZImage(file):
     # Load the image file
-    with resources.files('kgcPy').joinpath('kmz_int_reshape.png').open('rb') as fp:
+    with resources.files('kgcPy').joinpath(file).open('rb') as fp:
         img = fp.read()
     img = Image.open(io.BytesIO(img))
     # img_rgb = img.convert('RGB')
@@ -180,7 +180,7 @@ start_time = time.time()
 zip = pd.read_csv('kgcPy/zipcodes.csv')
 print(zip)
 
-image = loadKMZImage()
+image = loadKMZImage('kmz_int_reshape.png')
 kg_zonNum_df = loadCSV('kg_zoneNum.csv')
 CZresults = pd.DataFrame(columns=['lat', 'lon', 'CZ'])
 
@@ -224,7 +224,7 @@ print(quantiles)
 ## Testing roundCoordinates()
 zip = pd.read_csv('kgcPy/zipcodes.csv')
 
-image = loadKMZImage()
+image = loadKMZImage('kmz_int_reshape.png')
 rounded_coords = pd.DataFrame(columns=['original lat', 'original lon', 'rounded coordinates'])
 for i in range(len(zip)):
     lat = zip.iloc[i]['lat']
@@ -240,7 +240,7 @@ print(rounded_coords)
 ## Testing nearbyCZ()
 zip = pd.read_csv('kgcPy/zipcodes.csv')
 
-image = loadKMZImage()
+image = loadKMZImage('kmz_int_reshape.png')
 kg_zonNum_df = loadCSV('kg_zoneNum.csv')
 nearby_CZresults = pd.DataFrame(columns=['lat', 'lon', 'Nearby CZ result'])
 
@@ -251,7 +251,6 @@ for i in range(len(zip)):
     nearby_CZresults.loc[i] = [lat, lon, nearby_result]
 print(nearby_CZresults)
 '''
-
 
 end_time = time.time()
 execution_time = end_time - start_time
