@@ -180,3 +180,8 @@ def nearbyCZ(lat,lon,size=1):
     nearbyCZ.remove(climateZone)
 
     return climateZone, uncertaintyNearbyCZ, nearbyCZ
+
+
+## Testing LookupCz() function
+
+cl1 = lookupCZ(18.180555,-66.749961)
