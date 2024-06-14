@@ -1,7 +1,7 @@
 from kgcPy import loadKMZImage, loadCSV, lookupCZ, translateZipCode, irradianceQuantile, roundCoordinates, nearbyCZ
 import pytest
 
-# Testing LookupCZ() function
+# Testing LookupCZ() function with random lon and lat
 def test_lookupCZ():
     assert lookupCZ(56.002315, -130.041026) == 'Dfb'
     assert lookupCZ(18.263085, -66.712985) == 'Af'
@@ -14,7 +14,7 @@ def test_lookupCZ():
     assert lookupCZ(37.769436, -122.447662) == 'Csb'
     assert lookupCZ(25.531145, -80.391233) == 'Am'
 
-# Testing translateZipCode() function
+# Testing translateZipCode() function with random zip codes
 def test_translateZipCode():
     assert translateZipCode(49893) == (45.297038,-87.605155)
     assert translateZipCode(52335) == (41.467961,-92.053796)
@@ -27,7 +27,7 @@ def test_translateZipCode():
     assert translateZipCode(74136) == (36.0624,-95.941457)
     assert translateZipCode(75975) == (31.897138,-94.413785)
 
-# Testing irradianceQuantile() function
+# Testing irradianceQuantile() function with random KGC climate areas
 def test_irradianceQuantile():
     assert irradianceQuantile("Am") == (2205.288, 1958.4, 1857.6, 1800)
     assert irradianceQuantile("BSk") == (2199.6, 1915.2, 1627.2, 1497.6)
@@ -41,7 +41,7 @@ def test_irradianceQuantile():
     assert irradianceQuantile("EF") == (1231.2, 1137.6, 1029.6, 928.8)
     assert irradianceQuantile("ET") == (2138.4, 1130.4, 914.4, 835.2)
 
-# Testing roundCoordiantes() function
+# Testing roundCoordiantes() function with random lon and lat
 # Some of the roundings are 0.01 off due to floating point precision
 def test_roundCoordinates():
     assert roundCoordinates(56.002315, -130.041026) == (56.01, -130.04)
@@ -56,7 +56,7 @@ def test_roundCoordinates():
     assert roundCoordinates(25.531145, -80.391233) == (25.54, -80.40)
 
 
-# Testing nearbyCZ() function
+# Testing nearbyCZ() function with random lon and lat
 def test_nearbyCZ():
     assert nearbyCZ(56.002315, -130.041026) == ('Dfb', 1.0, [])
     assert nearbyCZ(18.263085, -66.712985) == ('Af', 1.0, [])
