@@ -44,6 +44,7 @@ All notable changes to this project will be documented in this file.
 ## [1.1.0] - 2023-08-12 - Package created
 ## [1.1.1] - 2023-08-15 - Update documentation
 ## [1.1.2] - 2023-08-15 - Update example codes
+## [1.1.4] - 2024-06-24 - Efficency improvements, GitHub release, testing
 
 #  Description
 The kgcPy package is a python version of “kgc: Köppen-Geiger Climatic Zones” R package on CRAN https://cran.r-project.org/web/packages/kgc/index.html, with addiontal functions.
