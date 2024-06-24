@@ -37,7 +37,7 @@ authors = [
 
 [project.optional-dependencies]
 test = ["pytest"]
-]
+
 
 [project.urls]
 "Bug Tracker" = "https://github.com/cwru-sdle/kgc-py/issues"
