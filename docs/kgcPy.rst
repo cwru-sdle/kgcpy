@@ -1,10 +1,10 @@
-kgcPy package
+kgcpy package
 =============
 
 Module contents
 ---------------
 
-.. automodule:: kgcPy
+.. automodule:: kgcpy
    :members:
    :undoc-members:
    :show-inheritance:

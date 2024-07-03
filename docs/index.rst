@@ -3,14 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to kgcPy: Koeppen-Geiger Climatic Zones's documentation!
+Welcome to kgcpy: Koeppen-Geiger Climatic Zones's documentation!
 ================================================================
 
 .. toctree::
    :maxdepth: 4
    :caption: Contents:
 
-   kgcPy
+   kgcpy
 
 Indices and tables
 ==================
@@ -22,7 +22,7 @@ Indices and tables
 Description
 ==================
 
-The kgcPy package is a python version of "kgc: Koeppen-Geiger Climatic Zones" R package on CRAN https://cran.r-project.org/web/packages/kgc/index.html, with addiontal functions.
+The kgcpy package is a python version of "kgc: Koeppen-Geiger Climatic Zones" R package on CRAN https://cran.r-project.org/web/packages/kgc/index.html, with addiontal functions.
 
 Aids in identifying the Koeppen-Geiger (KG) climatic zone for a given location. The Koeppen-Geiger climate zones were first published in 1884, as a system to classify regions of the earth by their relative heat and humidity through the year, for the benefit of human health, plant and agriculture and other human activity [1]. This climate zone classification system, applicable to all of the earths surface, has continued to be developed by scientists up to the present day. 
 
