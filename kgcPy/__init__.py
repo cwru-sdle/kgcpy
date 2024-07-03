@@ -7,14 +7,14 @@ Image.MAX_IMAGE_PIXELS = None
 # Helper function to load png file
 def loadKMZImage(file):
     # Load the image file
-    with resources.files('kgcPy').joinpath(file).open('rb') as fp:
+    with resources.files('kgcpy').joinpath(file).open('rb') as fp:
         img = fp.read()
     img = Image.open(io.BytesIO(img))
     return img
 
 # Helper function to load different CSV files
 def loadCSV(file):
-    with resources.files('kgcPy').joinpath(file).open('rb') as fp:
+    with resources.files('kgcpy').joinpath(file).open('rb') as fp:
         kgc_csv = fp.read()
 
     if file == 'kg_zoneNum.csv':

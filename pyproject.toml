@@ -3,8 +3,8 @@ requires = ["setuptools >= 61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = 'kgcPy'
-version = "1.1.4"
+name = 'kgcpy'
+version = "1.1.5"
 description = "Aids in identifying the Koeppen-Geiger (KG) climatic zone for a given latitude and longitude of any location."
 
 readme = "README.md"
@@ -40,11 +40,11 @@ test = ["pytest"]
 
 
 [project.urls]
-"Bug Tracker" = "https://github.com/cwru-sdle/kgc-py/issues"
-"Source Code" = "https://github.com/cwru-sdle/kgc-py"
-"Documentation" = "https://kgc-py.readthedocs.io"
+"Bug Tracker" = "https://github.com/cwru-sdle/kgcpy/issues"
+"Source Code" = "https://github.com/cwru-sdle/kgcpy"
+"Documentation" = "https://kgcpy.readthedocs.io"
 
 [tool.setuptools.packages.find]
-include = ["kgcPy*"]
+include = ["kgcpy*"]
 
 [tool.setuptools_scm]

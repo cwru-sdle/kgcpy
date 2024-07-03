@@ -1,7 +1,7 @@
-kgcPy
+kgcpy
 =====
 
 .. toctree::
    :maxdepth: 4
 
-   kgcPy
+   kgcpy

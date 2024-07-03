@@ -10,7 +10,7 @@ on:
 jobs:
   build-n-publish:
     name: Build and publish distributions to PyPI
-    if: github.repository == 'cwru-sdle/kgc-py'
+    if: github.repository == 'cwru-sdle/kgcpy'
     runs-on: ubuntu-latest
     steps:
     # fetch all commits and tags so versioneer works

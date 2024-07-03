@@ -1,4 +1,4 @@
-from kgcPy import loadKMZImage, loadCSV, lookupCZ, translateZipCode, irradianceQuantile, roundCoordinates, nearbyCZ
+from kgcpy import loadKMZImage, loadCSV, lookupCZ, translateZipCode, irradianceQuantile, roundCoordinates, nearbyCZ
 import pytest
 
 # Testing LookupCZ() function with random lon and lat
