@@ -1,4 +1,4 @@
-# kgc
+# kgcpy
 Aids in identifying the Köppen-Geiger (KG) climatic zone for
 a given lat and lon of any location. The resolution of KG map is at 100 sec arc or approximately 3.087 km at the equator, reported by Rubel et al. [2016]. 
 
@@ -14,11 +14,11 @@ F. Rubel, K. Brugger, K. Haslinger, and I. Auer, (2016) <doi:10.1127/metz/2016/0
 #  Setup
 1. Install it at bash
 ```bash
-$ pip install kgcPy
+$ pip install kgcpy
 ```
 2.	Import it in python
 ```python
-from kgcPy import *
+from kgcpy import *
 ``` 
 #  Examples
 ***Find Köppen-Geiger zone, nearby Köppen-Geiger zones for a given zipcode, and irradiance quantiles***
@@ -45,9 +45,10 @@ All notable changes to this project will be documented in this file.
 ## [1.1.1] - 2023-08-15 - Update documentation
 ## [1.1.2] - 2023-08-15 - Update example codes
 ## [1.1.4] - 2024-06-24 - Efficency improvements, GitHub release, testing
+## [1.1.5] - 2024-07-03 - Changed name to better conform to convention
 
 #  Description
-The kgcPy package is a python version of “kgc: Köppen-Geiger Climatic Zones” R package on CRAN https://cran.r-project.org/web/packages/kgc/index.html, with addiontal functions.
+The kgcpy package is a python version of “kgc: Köppen-Geiger Climatic Zones” R package on CRAN https://cran.r-project.org/web/packages/kgc/index.html, with addiontal functions.
 
 Aids in identifying the Köppen-Geiger (KG) climatic zone for a given location. The Köppen-Geiger climate zones were first published in 1884, as a system to classify regions of the earth by their relative heat and humidity through the year, for the benefit of human health, plant and agriculture and other human activity [1]. This climate zone classification system, applicable to all of the earths surface, has continued to be developed by scientists up to the present day.
 
