@@ -11,6 +11,9 @@ F. Rubel, K. Brugger, K. Haslinger, and I. Auer, (2016) <doi:10.1127/metz/2016/0
  - roundCoordinates(lat, lon): get the inputed number to nearest ’fine’ (100s) resolution grid point.
  - irradianceQuantile(kg_zone): get irradiance quantiles for each Koppen Geiger Climate Zone
  
+ # Documentation
+Documentation can be found on [ReadTheDocs](https://kgcpy.readthedocs.io/en/latest/):
+
 #  Setup
 1. Install it at bash
 ```bash
