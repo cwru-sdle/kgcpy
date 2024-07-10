@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = 'kgcpy'
-version = "1.1.7"
+version = "1.1.8"
 description = "Aids in identifying the Koeppen-Geiger (KG) climatic zone for a given latitude and longitude of any location."
 
 readme = "README.md"
