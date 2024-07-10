@@ -1,5 +1,5 @@
-include kgcPy/*.png
-include kgcPy/*.jpg
-include kgcPy/*.tif
-include kgcPy/*.npy
-include kgcPy/*.csv
+include kgcpy/*.png
+include kgcpy/*.jpg
+include kgcpy/*.tif
+include kgcpy/*.npy
+include kgcpy/*.csv
