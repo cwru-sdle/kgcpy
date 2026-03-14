@@ -44,15 +44,19 @@ def lookupCZ(lat,lon):
         _type_: _description_
     """
 
+    lon = ((lon + 180.0) % 360.0) - 180.0
+
     # Get the KG zone values of the pixel at position (x, y)
-    x = round((lon+180)*(img.size[0])/360 - 0.5)
-    y = round(-(lat-90)*(img.size[1])/180 - 0.5)
+    x = round((lon + 180) * img.size[0] / 360 - 0.5)
+    y = round((90 - lat) * img.size[1] / 180 - 0.5) if lat != -90 else img.size[1] - 1
+
     num = img.getpixel((x, y))
 
     # Use the loc method to find the index of the row that matches the input values
     res = kg_zoneNum_df['kg_zone'].loc[kg_zoneNum_df['zoneNum'] == num]
 
     return res.values[0]
+
 
 # This function will return the data frame with the longitude and latitude of the zip codes
 def translateZipCode(zipcode):
@@ -117,19 +121,21 @@ def roundCoordinates(lat,lon):
         _type_: _description_
     """
 
+    lon = ((lon + 180.0) % 360.0) - 180.0
+
     # Get the RGB values of the pixel at position (x, y)
-    x = round((lon+180)*(img.size[0])/360 - 0.5)
-    y = round(-(lat-90)*(img.size[1])/180 - 0.5)
+    x = round((lon + 180) * img.size[0] / 360 - 0.5)
+    y = round((90 - lat) * img.size[1] / 180 - 0.5) if lat != -90 else img.size[1] - 1
 
     lonRound = round(((x + 0.5) * 360 / img.size[0] - 180), 2)
-    latRound = round ((- (y + 0.5) * 180 / img.size[1] + 90), 2)
+    latRound = round((-(y + 0.5) * 180 / img.size[1] + 90), 2)
 
     return latRound, lonRound
 
-#get possible climate zones from nearby pixels, and compare to the center pixel; same as function CZUncertainty() in kgc R package 
+# Get possible climate zones from nearby pixels, and compare to the center pixel; same as function CZUncertainty() in kgc R package 
 def nearbyCZ(lat,lon,size=1):
     """
-    get possible climate zones from nearby pixels, and compare to the center pixel; same as function CZUncertainty() in kgc R package 
+    Get possible climate zones from nearby pixels, and compare to the center pixel; same as function CZUncertainty() in kgc R package 
 
     _summary_
 
@@ -141,25 +147,30 @@ def nearbyCZ(lat,lon,size=1):
     Returns:
         _type_: _description_
     """
+
+    lon = ((lon + 180.0) % 360.0) - 180.0
+
     # Get the RGB values of the pixel at position (x, y)
-    x = round((lon+180)*(img.size[0])/360 - 0.5)
-    y = round(-(lat-90)*(img.size[1])/180 - 0.5)
+    x = round((lon + 180) * img.size[0] / 360 - 0.5)
+    y = round((90 - lat) * img.size[1] / 180 - 0.5) if lat != -90 else img.size[1] - 1
+
+    num_0 = img.getpixel((x, y))
+    climateZone = kg_zoneNum_df['kg_zone'].loc[kg_zoneNum_df['zoneNum'] == num_0].values[0]
  
-    climateZones = []
-    climateZone = ''
+    climateZones = [climateZone]
+
+    lower_bound = max(y-size, 0)
+    upper_bound = min(y+size+1, img.size[1])
 
     for i in range(x-size, x+size+1):
-        for j in range(y-size, y+size+1):
-            try:
-                num = img.getpixel((i, j))
-                # rgb_values = {'R': r, 'G': g, 'B': b}
-                # Use the loc method to find the index of the row that matches the input values
-                cz = kg_zoneNum_df['kg_zone'].loc[kg_zoneNum_df['zoneNum'] == num]
-                climateZones.append(cz.values[0])
-                if i == x and j == y:
-                    climateZone = cz.values[0]
-            except IndexError:
-                pass
+        i = i % img.size[0]
+        for j in range(lower_bound, upper_bound):
+            num = img.getpixel((i, j))
+            # rgb_values = {'R': r, 'G': g, 'B': b}
+            # Use the loc method to find the index of the row that matches the input values
+            cz = kg_zoneNum_df['kg_zone'].loc[kg_zoneNum_df['zoneNum'] == num]
+            climateZones.append(cz.values[0])
+
     
     climateZones_series = pd.Series(climateZones)
     climateZones_counts = climateZones_series.value_counts()

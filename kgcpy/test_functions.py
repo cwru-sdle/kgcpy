@@ -69,4 +69,3 @@ def test_nearbyCZ():
     assert nearbyCZ(37.769436, -122.447662) == ('Csb', 1.0, [])
     assert nearbyCZ(25.531145, -80.391233) == ('Am', 1.0, [])
 
- 
